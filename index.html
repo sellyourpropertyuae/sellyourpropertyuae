@@ -710,12 +710,24 @@
         source:    document.getElementById('b_source').value,
       });
     }
-    fetch('https://formspree.io/f/xzdynorn', {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
-      body: JSON.stringify(data)
-    }).then(() => console.log('sent')).catch(err => console.log('err', err));
-    goTo('success', 100);
+ const form = document.createElement('form');
+form.method = 'POST';
+form.action = 'https://formspree.io/f/xzdynorn';
+form.style.display = 'none';
+const nextInput = document.createElement('input');
+nextInput.type = 'hidden';
+nextInput.name = '_next';
+nextInput.value = window.location.href;
+form.appendChild(nextInput);
+Object.keys(data).forEach(key => {
+  const input = document.createElement('input');
+  input.type = 'hidden';
+  input.name = key;
+  input.value = data[key] || '';
+  form.appendChild(input);
+});
+document.body.appendChild(form);
+form.submit();
   }
 </script>
 </body>
