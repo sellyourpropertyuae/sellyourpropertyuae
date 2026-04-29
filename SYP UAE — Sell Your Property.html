@@ -660,7 +660,7 @@
 
 <script>
   // ⚠️ Pega aquí tu URL de Google Sheets Apps Script
-  const SHEET_URL = "https://script.google.com/macros/s/AKfycbx95z3z7cQLO5GYLFrzAVAajvXE8lhSnUMJ_D5YUY-ODFP740omHvuWB3fAzi317aXF/exec";
+  const SHEET_URL = "https://script.google.com/macros/s/AKfycby-IvK0ncqiBbx2a3quYGwkQ238d_Vb-euV9BJoE0WBXnj3bqfrrvVYjWnDuRvr_G0N/exec";
 
   function selectType(t){ goTo(t==='sell'?'sell1':'buy1', 30); }
 
@@ -710,7 +710,7 @@
         source:    document.getElementById('b_source').value,
       });
     }
-    if(SHEET_URL !== "https://script.google.com/macros/s/AKfycbx95z3z7cQLO5GYLFrzAVAajvXE8lhSnUMJ_D5YUY-ODFP740omHvuWB3fAzi317aXF/exec"){
+    if(SHEET_URL !== "https://script.google.com/macros/s/AKfycby-IvK0ncqiBbx2a3quYGwkQ238d_Vb-euV9BJoE0WBXnj3bqfrrvVYjWnDuRvr_G0N/exec"){
       fetch(SHEET_URL, { method:'POST', mode:'no-cors', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data) });
     }
     goTo('success', 100);
