@@ -660,7 +660,7 @@
 
 <script>
   // ⚠️ Pega aquí tu URL de Google Sheets Apps Script
-  const SHEET_URL = "TU_URL_AQUI";
+
 
   function selectType(t){ goTo(t==='sell'?'sell1':'buy1', 30); }
 
@@ -710,9 +710,11 @@
         source:    document.getElementById('b_source').value,
       });
     }
-    if(SHEET_URL !== "TU_URL_AQUI"){
-      fetch(SHEET_URL, { method:'POST', mode:'no-cors', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data) });
-    }
+    fetch('https://formspree.io/f/xzdynorn', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+      body: JSON.stringify(data)
+    }).then(() => console.log('sent')).catch(err => console.log('err', err));
     goTo('success', 100);
   }
 </script>
