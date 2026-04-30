@@ -732,7 +732,8 @@ Object.keys(data).forEach(key => {
   form.appendChild(input);
 });
 document.body.appendChild(form);
-form.submit();
+goTo('success', 100);
+setTimeout(()=>{ form.submit(); }, 100);
   }
 </script>
 </body>
