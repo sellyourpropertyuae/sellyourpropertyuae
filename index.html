@@ -7,426 +7,111 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,200;0,300;0,400;0,600;1,300&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   :root {
     --navy: #1A2420;
     --navy-light: #1E2B27;
     --gold: #D8C87E;
-    --gold-dark: #b8a85e;
     --white: #ffffff;
     --muted: rgba(255,255,255,0.45);
     --border: rgba(216,200,126,0.2);
   }
-
   html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    background: var(--navy);
-    color: var(--white);
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
-
-  /* ── HEADER ── */
-  header {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    padding: 1.2rem 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: rgba(11,22,35,0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 0.5px solid var(--border);
-  }
-
+  body { font-family: 'Cormorant Garamond', Georgia, serif; background: var(--navy); color: var(--white); min-height: 100vh; overflow-x: hidden; }
+  header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.2rem 2rem; display: flex; align-items: center; justify-content: space-between; background: rgba(8,16,12,0.98); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(216,200,126,0.4); }
   .logo-wrap { display: flex; align-items: center; gap: 14px; }
-  .logo-syp {
-    font-size: 28px;
-    font-weight: 300;
-    color: var(--gold);
-    display: flex;
-    align-items: baseline;
-    gap: 1px;
-    line-height: 1;
-  }
+  .logo-syp { font-size: 28px; font-weight: 300; color: var(--gold); display: flex; align-items: baseline; gap: 1px; line-height: 1; }
   .logo-syp .s, .logo-syp .p { font-weight: 600; }
   .logo-syp .y { font-weight: 200; color: transparent; -webkit-text-stroke: 1px var(--gold); margin: 0 2px; }
   .logo-divider { width: 0.5px; height: 20px; background: var(--border); }
-  .logo-sub { font-family: 'Montserrat', sans-serif; font-size: 9px; letter-spacing: 4px; color: var(--muted); }
-
-  nav a {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 10px;
-    letter-spacing: 3px;
-    color: var(--muted);
-    text-decoration: none;
-    margin-left: 2rem;
-    transition: color 0.2s;
-  }
+  .logo-sub { font-family: 'Montserrat', sans-serif; font-size: 9px; letter-spacing: 4px; color: var(--gold); }
+  nav a { font-family: 'Montserrat', sans-serif; font-size: 10px; letter-spacing: 3px; color: var(--muted); text-decoration: none; margin-left: 2rem; transition: color 0.2s; }
   nav a:hover { color: var(--gold); }
-
-  /* ── HERO ── */
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 8rem 2rem 4rem;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(216,200,126,0.06) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .hero-tag {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 10px;
-    letter-spacing: 5px;
-    color: var(--gold);
-    border: 0.5px solid rgba(216,200,126,0.4);
-    padding: 6px 18px;
-    border-radius: 2px;
-    margin-bottom: 2rem;
-    display: inline-block;
-  }
-
-  .hero h1 {
-    font-size: clamp(42px, 7vw, 88px);
-    font-weight: 300;
-    line-height: 1.1;
-    color: var(--white);
-    margin-bottom: 1rem;
-    letter-spacing: 1px;
-  }
-
-  .hero h1 em {
-    font-style: italic;
-    color: var(--gold);
-  }
-
-  .hero-sub {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 13px;
-    letter-spacing: 2px;
-    color: var(--muted);
-    margin-bottom: 3rem;
-    max-width: 420px;
-    line-height: 1.8;
-  }
-
-  .hero-line {
-    width: 60px;
-    height: 0.5px;
-    background: var(--gold);
-    margin: 0 auto 3rem;
-    opacity: 0.5;
-  }
-
-  .btn-primary {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 11px;
-    letter-spacing: 3px;
-    color: var(--navy);
-    background: var(--gold);
-    border: none;
-    padding: 16px 40px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: background 0.2s;
-    text-decoration: none;
-    display: inline-block;
-  }
+  .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 8rem 2rem 4rem; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(216,200,126,0.06) 0%, transparent 70%); pointer-events: none; }
+  .hero-tag { font-family: 'Montserrat', sans-serif; font-size: 10px; letter-spacing: 5px; color: var(--gold); border: 0.5px solid rgba(216,200,126,0.4); padding: 6px 18px; border-radius: 2px; margin-bottom: 2rem; display: inline-block; }
+  .hero h1 { font-size: clamp(42px, 7vw, 88px); font-weight: 300; line-height: 1.1; color: var(--white); margin-bottom: 1rem; letter-spacing: 1px; }
+  .hero h1 em { font-style: italic; color: var(--gold); }
+  .hero-line { width: 60px; height: 0.5px; background: var(--gold); margin: 0 auto 3rem; opacity: 0.5; }
+  .btn-primary { font-family: 'Montserrat', sans-serif; font-size: 11px; letter-spacing: 3px; color: var(--navy); background: var(--gold); border: none; padding: 16px 40px; cursor: pointer; font-weight: 600; transition: background 0.2s; text-decoration: none; display: inline-block; }
   .btn-primary:hover { background: #e8d89a; }
-
-  /* ── VIDEO SECTION ── */
-  .section-vsl {
-    padding: 6rem 2rem;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  .section-label {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 10px;
-    letter-spacing: 4px;
-    color: var(--gold);
-    text-align: center;
-    margin-bottom: 1rem;
-  }
-
-  .section-title {
-    font-size: clamp(28px, 4vw, 46px);
-    font-weight: 300;
-    text-align: center;
-    color: var(--white);
-    margin-bottom: 0.5rem;
-    letter-spacing: 1px;
-  }
-
-  .section-sub {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 12px;
-    letter-spacing: 1px;
-    color: var(--muted);
-    text-align: center;
-    margin-bottom: 3rem;
-    line-height: 1.8;
-  }
-
-  .video-container {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 16/9;
-    background: var(--navy-light);
-    border: 0.5px solid var(--border);
-    border-radius: 4px;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-  }
-
-  .video-placeholder {
-    text-align: center;
-  }
-
-  .play-btn {
-    width: 72px;
-    height: 72px;
-    border-radius: 50%;
-    border: 1.5px solid var(--gold);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 1.2rem;
-    transition: background 0.2s;
-  }
-
-  .play-btn::after {
-    content: '';
-    width: 0;
-    height: 0;
-    border-top: 12px solid transparent;
-    border-bottom: 12px solid transparent;
-    border-left: 20px solid var(--gold);
-    margin-left: 4px;
-  }
-
-  .video-container:hover .play-btn { background: rgba(216,200,126,0.1); }
-
-  .video-label {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 11px;
-    letter-spacing: 3px;
-    color: var(--muted);
-  }
-
-  /* Actual video embed */
-  .video-container iframe,
-  .video-container video {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
-  }
-
-  /* ── DIVIDER ── */
-  .ornament {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 16px;
-    padding: 2rem 0;
-    max-width: 500px;
-    margin: 0 auto;
-  }
+  .photo-strip { width: 100%; display: grid; grid-template-columns: 1fr 1fr 1fr; grid-template-rows: 420px; gap: 3px; overflow: hidden; }
+  .photo-strip div { position: relative; overflow: hidden; }
+  .photo-strip img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.7) saturate(0.8); display: block; transition: transform 0.8s ease; }
+  .photo-strip div:hover img { transform: scale(1.05); }
+  .photo-strip .overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(26,36,32,0.82) 0%, transparent 55%); }
+  .photo-strip .label { position: absolute; bottom: 1.8rem; left: 1.8rem; font-family: 'Montserrat', sans-serif; font-size: 8px; letter-spacing: 4px; color: rgba(216,200,126,0.95); margin: 0; }
+  .gold-line { height: 1px; background: linear-gradient(to right, transparent, rgba(216,200,126,0.35), transparent); }
+  .section-label { font-family: 'Montserrat', sans-serif; font-size: 10px; letter-spacing: 4px; color: var(--gold); text-align: center; margin-bottom: 1rem; }
+  .section-title { font-size: clamp(28px, 4vw, 46px); font-weight: 300; text-align: center; color: var(--white); margin-bottom: 0.5rem; letter-spacing: 1px; }
+  .section-sub { font-family: 'Montserrat', sans-serif; font-size: 12px; letter-spacing: 1px; color: var(--muted); text-align: center; margin-bottom: 3rem; line-height: 1.8; }
+  .ornament { display: flex; align-items: center; justify-content: center; gap: 16px; padding: 2rem 0; max-width: 500px; margin: 0 auto; }
   .ornament-line { flex: 1; height: 0.5px; background: var(--border); }
   .ornament-dot { width: 5px; height: 5px; border-radius: 50%; border: 0.5px solid var(--gold); }
-
-  /* ── FORM SECTION ── */
-  .section-form {
-    padding: 4rem 2rem 6rem;
-    max-width: 580px;
-    margin: 0 auto;
-  }
-
-  .card {
-    background: rgba(255,255,255,0.02);
-    border: 0.5px solid var(--border);
-    border-radius: 12px;
-    padding: 2.5rem;
-  }
-
+  .section-form { padding: 4rem 2rem 6rem; max-width: 580px; margin: 0 auto; }
+  .card { background: rgba(255,255,255,0.02); border: 0.5px solid var(--border); border-radius: 12px; padding: 2.5rem; }
   .progress { height: 2px; background: rgba(216,200,126,0.12); border-radius: 2px; margin-bottom: 2rem; }
   .progress-fill { height: 2px; background: var(--gold); border-radius: 2px; transition: width 0.4s ease; }
-
-  .step { display: none; }
-  .step.active { display: block; }
-
-  .step-tag {
-    display: inline-block;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 9px;
-    letter-spacing: 3px;
-    color: var(--gold);
-    border: 0.5px solid rgba(216,200,126,0.35);
-    padding: 3px 12px;
-    border-radius: 2px;
-    margin-bottom: 1rem;
-  }
-
-  .step-num {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 9px;
-    letter-spacing: 3px;
-    color: var(--muted);
-    margin-bottom: 0.8rem;
-  }
-
-  .step-q {
-    font-size: 22px;
-    font-weight: 300;
-    color: var(--white);
-    line-height: 1.4;
-    margin-bottom: 1.8rem;
-  }
-
+  .step { display: none; } .step.active { display: block; }
+  .step-tag { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 9px; letter-spacing: 3px; color: var(--gold); border: 0.5px solid rgba(216,200,126,0.35); padding: 3px 12px; border-radius: 2px; margin-bottom: 1rem; }
+  .step-num { font-family: 'Montserrat', sans-serif; font-size: 9px; letter-spacing: 3px; color: var(--muted); margin-bottom: 0.8rem; }
+  .step-q { font-size: 22px; font-weight: 300; color: var(--white); line-height: 1.4; margin-bottom: 1.8rem; }
   .choice-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 1.5rem; }
-
-  .choice {
-    background: rgba(255,255,255,0.02);
-    border: 0.5px solid rgba(216,200,126,0.25);
-    border-radius: 8px;
-    padding: 1.8rem 1rem;
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.2s;
-  }
+  .choice { background: rgba(255,255,255,0.02); border: 0.5px solid rgba(216,200,126,0.25); border-radius: 8px; padding: 1.8rem 1rem; text-align: center; cursor: pointer; transition: all 0.2s; }
   .choice:hover { background: rgba(216,200,126,0.07); border-color: var(--gold); }
   .choice-icon { font-size: 30px; margin-bottom: 10px; }
   .choice-label { font-size: 17px; color: var(--gold); font-weight: 300; }
   .choice-sub { font-family: 'Montserrat', sans-serif; font-size: 10px; color: var(--muted); margin-top: 5px; letter-spacing: 1px; }
-
-  .field-label {
-    display: block;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 9px;
-    letter-spacing: 2px;
-    color: var(--gold);
-    margin-bottom: 6px;
-  }
-
-  .field-input {
-    width: 100%;
-    background: rgba(255,255,255,0.03);
-    border: 0.5px solid rgba(216,200,126,0.22);
-    border-radius: 5px;
-    padding: 12px 14px;
-    color: var(--white);
-    font-size: 16px;
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    margin-bottom: 1.2rem;
-    outline: none;
-    transition: border-color 0.2s;
-    -webkit-appearance: none;
-  }
+  .field-label { display: block; font-family: 'Montserrat', sans-serif; font-size: 9px; letter-spacing: 2px; color: var(--gold); margin-bottom: 6px; }
+  .field-input { width: 100%; background: rgba(255,255,255,0.03); border: 0.5px solid rgba(216,200,126,0.22); border-radius: 5px; padding: 12px 14px; color: var(--white); font-size: 16px; font-family: 'Cormorant Garamond', Georgia, serif; margin-bottom: 1.2rem; outline: none; transition: border-color 0.2s; -webkit-appearance: none; }
   .field-input:focus { border-color: var(--gold); background: rgba(216,200,126,0.04); }
   .field-input::placeholder { color: rgba(255,255,255,0.18); }
   select.field-input option { background: var(--navy); color: var(--white); }
-
   .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
   .row3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
-
-  .btn-next {
-    display: block; width: 100%; padding: 15px;
-    background: var(--gold); border: none; border-radius: 0;
-    color: var(--navy); font-family: 'Montserrat', sans-serif;
-    font-size: 11px; letter-spacing: 3px; font-weight: 700;
-    cursor: pointer; margin-top: 1rem; transition: background 0.2s;
-  }
+  .btn-next { display: block; width: 100%; padding: 15px; background: var(--gold); border: none; border-radius: 0; color: var(--navy); font-family: 'Montserrat', sans-serif; font-size: 11px; letter-spacing: 3px; font-weight: 700; cursor: pointer; margin-top: 1rem; transition: background 0.2s; }
   .btn-next:hover { background: #e8d89a; }
-
-  .btn-back {
-    display: block; width: 100%; padding: 13px;
-    background: var(--gold); border: none; border-radius: 0;
-    color: var(--navy); font-family: 'Montserrat', sans-serif;
-    font-size: 10px; letter-spacing: 3px; font-weight: 700;
-    cursor: pointer; margin-top: 8px; opacity: 0.55;
-    transition: opacity 0.2s;
-  }
+  .btn-back { display: block; width: 100%; padding: 13px; background: var(--gold); border: none; border-radius: 0; color: var(--navy); font-family: 'Montserrat', sans-serif; font-size: 10px; letter-spacing: 3px; font-weight: 700; cursor: pointer; margin-top: 8px; opacity: 0.55; transition: opacity 0.2s; }
   .btn-back:hover { opacity: 1; }
-
-  /* ── SUCCESS ── */
   .success { text-align: center; padding: 2rem 0; }
-  .success-check {
-    width: 64px; height: 64px; border-radius: 50%;
-    border: 1px solid var(--gold);
-    display: flex; align-items: center; justify-content: center;
-    margin: 0 auto 1.5rem;
-    font-size: 28px; color: var(--gold);
-  }
+  .success-check { width: 64px; height: 64px; border-radius: 50%; border: 1px solid var(--gold); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 28px; color: var(--gold); }
   .success-h { font-size: 28px; font-weight: 300; color: var(--gold); margin-bottom: 0.5rem; }
   .success-sub { font-family: 'Montserrat', sans-serif; font-size: 12px; color: var(--muted); line-height: 2; letter-spacing: 1px; }
-
-  /* ── FOOTER ── */
-  footer {
-    border-top: 0.5px solid var(--border);
-    padding: 2rem;
-    text-align: center;
-  }
-  footer p {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 10px;
-    letter-spacing: 2px;
-    color: rgba(255,255,255,0.2);
-  }
+  footer { border-top: 0.5px solid var(--border); padding: 2rem; text-align: center; }
+  footer p { font-family: 'Montserrat', sans-serif; font-size: 10px; letter-spacing: 2px; color: rgba(255,255,255,0.2); }
   footer a { color: var(--gold); text-decoration: none; }
-
-  @media (max-width: 480px) {
+  @media (max-width: 640px) {
+    .photo-strip { grid-template-columns: 1fr; grid-template-rows: 260px 260px 260px; }
     .row2, .row3 { grid-template-columns: 1fr; }
-    .choice-row { grid-template-columns: 1fr 1fr; }
     nav { display: none; }
     .card { padding: 1.5rem; }
   }
+  .fade-up { opacity: 0; transform: translateY(50px); transition: opacity 0.8s ease, transform 0.8s ease; }
+  .fade-left { opacity: 0; transform: translateX(-50px); transition: opacity 0.8s ease, transform 0.8s ease; }
+  .fade-right { opacity: 0; transform: translateX(50px); transition: opacity 0.8s ease, transform 0.8s ease; }
+  .fade-up.visible, .fade-left.visible, .fade-right.visible { opacity: 1; transform: none; }
+  .delay-1 { transition-delay: 0.1s; }
+  .delay-2 { transition-delay: 0.2s; }
+  .delay-3 { transition-delay: 0.3s; }
 </style>
 </head>
 <body>
-
-<!-- HEADER -->
 <header>
   <div class="logo-wrap">
-    <div class="logo-syp">
-      <span class="s">S</span><span class="y">Y</span><span class="p">P</span>
-    </div>
+    <div class="logo-syp"><span class="s">S</span><span class="y">Y</span><span class="p">P</span></div>
     <div class="logo-divider"></div>
     <div class="logo-sub">SELL YOUR PROPERTY UAE</div>
   </div>
   <nav>
-    <a href="#video">WATCH</a>
+    <a href="services.html">SERVICES</a>
     <a href="#form">GET STARTED</a>
     <a href="mailto:contact@sellyourpropertyuae.com">CONTACT</a>
   </nav>
 </header>
-
-<!-- HERO -->
 <section class="hero">
-  <div class="hero-tag">DUBAI REAL ESTATE</div>
-  <h1>The smarter way to<br><em>sell or find</em><br>your property</h1>
-  <div class="hero-line"></div>
-  <p class="hero-sub" style="max-width:620px;font-size:16px;font-weight:300;color:rgba(255,255,255,0.7);line-height:1.9;letter-spacing:0.5px;text-align:left;">
+  <div class="hero-tag fade-up">DUBAI REAL ESTATE</div>
+  <h1 class="fade-up delay-1">The smarter way to<br><em>sell or find</em><br>your property</h1>
+  <div class="hero-line fade-up delay-2"></div>
+  <p style="max-width:620px;font-size:16px;font-weight:300;color:rgba(255,255,255,0.7);line-height:1.9;letter-spacing:0.5px;text-align:left;font-family:'Montserrat',sans-serif;margin-bottom:3rem;">
     Welcome to a different kind of real estate experience.<br><br>
     No noise. No time-wasters. No endless viewings with buyers who were never serious. No inexperienced agents making promises they can't keep. No enquiries from people who are just collecting information.<br><br>
     At SYP UAE, we work exclusively with high-end investors, cash buyers and serious sellers who know what they want — and are ready to move. Every buyer in our network is vetted. Every seller we work with is committed.<br><br>
@@ -436,17 +121,30 @@
   </p>
   <a href="#form" class="btn-primary">GET STARTED →</a>
 </section>
-
-<!-- FORM SECTION -->
+<div class="photo-strip">
+  <div>
+    <img src="https://raw.githubusercontent.com/sellyourpropertyuae/sellyourpropertyuae/main/photo1.jpg" alt="Dubai"/>
+    <div class="overlay"></div>
+    <p class="label">DUBAI</p>
+  </div>
+  <div>
+    <img src="https://raw.githubusercontent.com/sellyourpropertyuae/sellyourpropertyuae/main/photo2.jpg" alt="Palm Jumeirah"/>
+    <div class="overlay"></div>
+    <p class="label">PALM JUMEIRAH</p>
+  </div>
+  <div>
+    <img src="https://raw.githubusercontent.com/sellyourpropertyuae/sellyourpropertyuae/main/photo3.jpg" alt="Abu Dhabi"/>
+    <div class="overlay"></div>
+    <p class="label">ABU DHABI</p>
+  </div>
+</div>
+<div class="gold-line"></div>
 <section class="section-form" id="form" style="padding-top:2rem;">
-  <p class="section-label">GET STARTED</p>
-  <h2 class="section-title" style="margin-bottom:0.5rem;">Tell us what you need</h2>
+  <p class="section-label fade-up">GET STARTED</p>
+  <h2 class="section-title fade-up delay-1" style="margin-bottom:0.5rem;">Tell us what you need</h2>
   <p class="section-sub">Selling or searching — fill in the form and we'll get back to you within 24 hours</p>
-
   <div class="card">
     <div class="progress"><div class="progress-fill" id="prog" style="width:10%"></div></div>
-
-    <!-- STEP 0 -->
     <div class="step active" id="s0">
       <p class="step-q">What are you looking to do?</p>
       <div class="choice-row">
@@ -462,8 +160,6 @@
         </div>
       </div>
     </div>
-
-    <!-- SELL 1 -->
     <div class="step" id="sell1">
       <div class="step-tag">SELLING</div>
       <p class="step-num">STEP 1 OF 4</p>
@@ -479,8 +175,6 @@
       <button class="btn-next" onclick="goTo('sell2',50)">CONTINUE →</button>
       <button class="btn-back" onclick="goTo('s0',10)">← BACK</button>
     </div>
-
-    <!-- SELL 2 -->
     <div class="step" id="sell2">
       <div class="step-tag">SELLING</div>
       <p class="step-num">STEP 2 OF 4</p>
@@ -511,8 +205,6 @@
       <button class="btn-next" onclick="goTo('sell3',70)">CONTINUE →</button>
       <button class="btn-back" onclick="goTo('sell1',30)">← BACK</button>
     </div>
-
-    <!-- SELL 3 -->
     <div class="step" id="sell3">
       <div class="step-tag">SELLING</div>
       <p class="step-num">STEP 3 OF 4</p>
@@ -534,8 +226,6 @@
       <button class="btn-next" onclick="goTo('sell4',90)">CONTINUE →</button>
       <button class="btn-back" onclick="goTo('sell2',50)">← BACK</button>
     </div>
-
-    <!-- SELL 4 -->
     <div class="step" id="sell4">
       <div class="step-tag">SELLING</div>
       <p class="step-num">STEP 4 OF 4</p>
@@ -550,8 +240,6 @@
       <button class="btn-next" onclick="submitForm('sell')">SUBMIT MY LISTING →</button>
       <button class="btn-back" onclick="goTo('sell3',70)">← BACK</button>
     </div>
-
-    <!-- BUY 1 -->
     <div class="step" id="buy1">
       <div class="step-tag">BUYING</div>
       <p class="step-num">STEP 1 OF 4</p>
@@ -567,8 +255,6 @@
       <button class="btn-next" onclick="goTo('buy2',50)">CONTINUE →</button>
       <button class="btn-back" onclick="goTo('s0',10)">← BACK</button>
     </div>
-
-    <!-- BUY 2 -->
     <div class="step" id="buy2">
       <div class="step-tag">BUYING</div>
       <p class="step-num">STEP 2 OF 4</p>
@@ -597,8 +283,6 @@
       <button class="btn-next" onclick="goTo('buy3',70)">CONTINUE →</button>
       <button class="btn-back" onclick="goTo('buy1',30)">← BACK</button>
     </div>
-
-    <!-- BUY 3 -->
     <div class="step" id="buy3">
       <div class="step-tag">BUYING</div>
       <p class="step-num">STEP 3 OF 4</p>
@@ -623,8 +307,6 @@
       <button class="btn-next" onclick="goTo('buy4',90)">CONTINUE →</button>
       <button class="btn-back" onclick="goTo('buy2',50)">← BACK</button>
     </div>
-
-    <!-- BUY 4 -->
     <div class="step" id="buy4">
       <div class="step-tag">BUYING</div>
       <p class="step-num">STEP 4 OF 4</p>
@@ -639,8 +321,6 @@
       <button class="btn-next" onclick="submitForm('buy')">FIND MY PROPERTY →</button>
       <button class="btn-back" onclick="goTo('buy3',70)">← BACK</button>
     </div>
-
-    <!-- SUCCESS -->
     <div class="step" id="success">
       <div class="success">
         <div class="success-check">✓</div>
@@ -649,28 +329,19 @@
         <p class="success-sub">We've received your details.<br>We'll be in touch within <span style="color:var(--gold);">24 hours</span> via WhatsApp.<br><br>No pressure · No fees upfront · Just results.</p>
       </div>
     </div>
-
   </div>
 </section>
-
-<!-- FOOTER -->
 <footer>
   <p>© 2025 SYP UAE · <a href="mailto:contact@sellyourpropertyuae.com">contact@sellyourpropertyuae.com</a> · RERA Licensed</p>
 </footer>
-
 <script>
-  // ⚠️ Pega aquí tu URL de Google Sheets Apps Script
-
-
   function selectType(t){ goTo(t==='sell'?'sell1':'buy1', 30); }
-
   function goTo(id, prog){
     document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
     document.getElementById(id).classList.add('active');
     document.getElementById('prog').style.width = prog + '%';
     document.getElementById('form').scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
-
   function submitForm(type){
     const data = { type, timestamp: new Date().toLocaleString() };
     if(type === 'sell'){
@@ -714,9 +385,21 @@
       method: 'POST',
       headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
       body: JSON.stringify(data)
-    }).then(() => console.log('sent')).catch(err => console.log('err', err));
+    });
     goTo('success', 100);
   }
+</script>
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.fade-up, .fade-left, .fade-right').forEach(el => {
+    observer.observe(el);
+  });
 </script>
 </body>
 </html>
