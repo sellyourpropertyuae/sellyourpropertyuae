@@ -715,25 +715,12 @@
         source:    document.getElementById('b_source').value,
       });
     }
- const form = document.createElement('form');
-form.method = 'POST';
-form.action = 'https://formspree.io/f/xzdynorn';
-form.style.display = 'none';
-const nextInput = document.createElement('input');
-nextInput.type = 'hidden';
-nextInput.name = '_next';
-nextInput.value = window.location.href + '?sent=1';
-form.appendChild(nextInput);
-Object.keys(data).forEach(key => {
-  const input = document.createElement('input');
-  input.type = 'hidden';
-  input.name = key;
-  input.value = data[key] || '';
-  form.appendChild(input);
+ fetch('https://formspree.io/f/xzdynorn', {
+  method: 'POST',
+  headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+  body: JSON.stringify(data)
 });
-document.body.appendChild(form);
 goTo('success', 100);
-setTimeout(()=>{ form.submit(); }, 100);
   }
 </script>
 </body>
