@@ -662,11 +662,7 @@
   // ⚠️ Pega aquí tu URL de Google Sheets Apps Script
 
 
- if(window.location.search.includes('sent=1')){
-  document.querySelectorAll('.step').forEach(s=>s.classList.remove('active'));
-  document.getElementById('success').classList.add('active');
-  document.getElementById('prog').style.width='100%';
-}
+ 
   function selectType(t){ goTo(t==='sell'?'sell1':'buy1', 30); }
 
   function goTo(id, prog){
