@@ -662,6 +662,11 @@
   // ⚠️ Pega aquí tu URL de Google Sheets Apps Script
 
 
+ if(window.location.search.includes('sent=1')){
+  document.querySelectorAll('.step').forEach(s=>s.classList.remove('active'));
+  document.getElementById('success').classList.add('active');
+  document.getElementById('prog').style.width='100%';
+}
   function selectType(t){ goTo(t==='sell'?'sell1':'buy1', 30); }
 
   function goTo(id, prog){
@@ -717,7 +722,7 @@ form.style.display = 'none';
 const nextInput = document.createElement('input');
 nextInput.type = 'hidden';
 nextInput.name = '_next';
-nextInput.value = window.location.href;
+nextInput.value = window.location.href + '?sent=1';
 form.appendChild(nextInput);
 Object.keys(data).forEach(key => {
   const input = document.createElement('input');
