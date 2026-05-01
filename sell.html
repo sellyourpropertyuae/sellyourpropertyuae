@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SYP UAE — Sell Your Property in Dubai</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #1A2420;
+    --gold: #D8C87E;
+    --white: #ffffff;
+    --muted: rgba(255,255,255,0.5);
+    --border: rgba(216,200,126,0.2);
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Cormorant Garamond', Georgia, serif; background: var(--navy); color: var(--white); overflow-x: hidden; }
+
+  /* HEADER — minimal, no nav */
+  header {
+    padding: 1.5rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 0.5px solid var(--border);
+    background: rgba(8,16,12,0.98);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .logo-syp { font-size: 26px; font-weight: 300; color: var(--gold); display: flex; align-items: baseline; gap: 1px; }
+  .logo-syp .s, .logo-syp .p { font-weight: 600; }
+  .logo-syp .y { font-weight: 200; color: transparent; -webkit-text-stroke: 1px var(--gold); margin: 0 2px; }
+  .logo-divider { width: 0.5px; height: 18px; background: var(--border); margin: 0 14px; }
+  .logo-sub { font-family: 'Montserrat', sans-serif; font-size: 8px; letter-spacing: 4px; color: var(--gold); }
+
+  /* HERO TEXT */
+  .hero {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 5rem 2rem 3rem;
+    text-align: center;
+  }
+
+  .hero-tag {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    letter-spacing: 5px;
+    color: var(--gold);
+    border: 0.5px solid rgba(216,200,126,0.35);
+    padding: 5px 16px;
+    border-radius: 2px;
+    margin-bottom: 2rem;
+    display: inline-block;
+  }
+
+  .hero h1 {
+    font-size: clamp(36px, 5vw, 72px);
+    font-weight: 300;
+    line-height: 1.15;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 em { font-style: italic; color: var(--gold); }
+
+  .ornament { display: flex; align-items: center; gap: 16px; max-width: 200px; margin: 0 auto 2.5rem; }
+  .ornament-line { flex: 1; height: 0.5px; background: rgba(216,200,126,0.3); }
+  .ornament-dot { width: 4px; height: 4px; border-radius: 50%; border: 0.5px solid var(--gold); }
+
+  .hero-body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: rgba(255,255,255,0.65);
+    line-height: 2;
+    text-align: left;
+    margin-bottom: 2rem;
+  }
+
+  .hero-body strong { color: var(--gold); font-weight: 500; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1px;
+    border: 0.5px solid var(--border);
+    margin: 3rem 0;
+  }
+
+  .stat {
+    padding: 1.5rem 1rem;
+    text-align: center;
+    border: 0.5px solid var(--border);
+  }
+
+  .stat-num {
+    font-size: 36px;
+    font-weight: 300;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .stat-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--muted);
+  }
+
+  /* DIVIDER */
+  .section-divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 1rem 2rem;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .div-line { flex: 1; height: 0.5px; background: var(--border); }
+  .div-dot { width: 4px; height: 4px; border-radius: 50%; border: 0.5px solid var(--gold); }
+
+  /* VIDEO SECTION */
+  .video-section {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 2rem 4rem;
+  }
+
+  .section-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    letter-spacing: 4px;
+    color: var(--gold);
+    text-align: center;
+    margin-bottom: 1rem;
+    opacity: 0.7;
+  }
+
+  .video-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: rgba(255,255,255,0.03);
+    border: 0.5px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Replace this div with your video iframe when ready */
+  .video-placeholder {
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .play-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 1px solid var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+  }
+
+  .play-circle::after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-top: 14px solid transparent;
+    border-bottom: 14px solid transparent;
+    border-left: 22px solid var(--gold);
+    margin-left: 5px;
+  }
+
+  .video-placeholder p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+
+  .video-placeholder small {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    color: rgba(255,255,255,0.2);
+    letter-spacing: 1px;
+  }
+
+  /* FORM SECTION */
+  .form-section {
+    max-width: 580px;
+    margin: 0 auto;
+    padding: 2rem 2rem 6rem;
+  }
+
+  .form-intro {
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .form-intro h2 {
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 300;
+    color: var(--white);
+    margin-bottom: 0.8rem;
+  }
+
+  .form-intro h2 em { font-style: italic; color: var(--gold); }
+
+  .form-intro p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.8;
+  }
+
+  .card {
+    background: rgba(255,255,255,0.02);
+    border: 0.5px solid var(--border);
+    border-radius: 12px;
+    padding: 2.5rem;
+  }
+
+  .progress { height: 2px; background: rgba(216,200,126,0.12); border-radius: 2px; margin-bottom: 2rem; }
+  .progress-fill { height: 2px; background: var(--gold); border-radius: 2px; transition: width 0.4s ease; }
+
+  .step { display: none; } .step.active { display: block; }
+
+  .step-tag { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 9px; letter-spacing: 3px; color: var(--gold); border: 0.5px solid rgba(216,200,126,0.35); padding: 3px 12px; border-radius: 2px; margin-bottom: 1rem; }
+  .step-num { font-family: 'Montserrat', sans-serif; font-size: 9px; letter-spacing: 3px; color: var(--muted); margin-bottom: 0.8rem; }
+  .step-q { font-size: 22px; font-weight: 300; color: var(--white); line-height: 1.4; margin-bottom: 1.8rem; }
+
+  .field-label { display: block; font-family: 'Montserrat', sans-serif; font-size: 9px; letter-spacing: 2px; color: var(--gold); margin-bottom: 6px; }
+  .field-input { width: 100%; background: rgba(255,255,255,0.03); border: 0.5px solid rgba(216,200,126,0.22); border-radius: 5px; padding: 12px 14px; color: var(--white); font-size: 16px; font-family: 'Cormorant Garamond', Georgia, serif; margin-bottom: 1.2rem; outline: none; transition: border-color 0.2s; -webkit-appearance: none; }
+  .field-input:focus { border-color: var(--gold); background: rgba(216,200,126,0.04); }
+  .field-input::placeholder { color: rgba(255,255,255,0.18); }
+  select.field-input option { background: var(--navy); color: var(--white); }
+
+  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .row3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+
+  .btn-next { display: block; width: 100%; padding: 16px; background: var(--gold); border: none; border-radius: 0; color: var(--navy); font-family: 'Montserrat', sans-serif; font-size: 11px; letter-spacing: 3px; font-weight: 700; cursor: pointer; margin-top: 1rem; transition: background 0.2s; }
+  .btn-next:hover { background: #e8d89a; }
+  .btn-back { display: block; width: 100%; padding: 13px; background: var(--gold); border: none; border-radius: 0; color: var(--navy); font-family: 'Montserrat', sans-serif; font-size: 10px; letter-spacing: 3px; font-weight: 700; cursor: pointer; margin-top: 8px; opacity: 0.55; transition: opacity 0.2s; }
+  .btn-back:hover { opacity: 1; }
+
+  .trust-row {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .trust-item {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.3);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .trust-item::before {
+    content: '✓';
+    color: var(--gold);
+    font-size: 10px;
+  }
+
+  .success { text-align: center; padding: 2rem 0; }
+  .success-check { width: 64px; height: 64px; border-radius: 50%; border: 1px solid var(--gold); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 28px; color: var(--gold); }
+  .success-h { font-size: 28px; font-weight: 300; color: var(--gold); margin-bottom: 0.5rem; }
+  .success-sub { font-family: 'Montserrat', sans-serif; font-size: 12px; color: var(--muted); line-height: 2; }
+
+  /* FOOTER */
+  footer { border-top: 0.5px solid var(--border); padding: 2rem; text-align: center; }
+  footer p { font-family: 'Montserrat', sans-serif; font-size: 9px; letter-spacing: 2px; color: rgba(255,255,255,0.15); }
+  footer a { color: var(--gold); text-decoration: none; }
+
+
+  .form-locked { position: relative; }
+  .form-lock-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(26,36,32,0.85);
+    backdrop-filter: blur(4px);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    text-align: center;
+    padding: 2rem;
+    transition: opacity 0.6s ease;
+  }
+  .lock-icon { font-size: 36px; margin-bottom: 1rem; color: var(--gold); }
+  .lock-text { font-family: 'Montserrat', sans-serif; font-size: 11px; letter-spacing: 2px; color: rgba(255,255,255,0.6); line-height: 1.8; }
+  .lock-text strong { color: var(--gold); display: block; margin-bottom: 0.5rem; font-size: 13px; }
+  .form-lock-overlay.unlocked { opacity: 0; pointer-events: none; }
+
+  /* ANIMATIONS */
+  .fade-up { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
+  .fade-up.visible { opacity: 1; transform: none; }
+  .delay-1 { transition-delay: 0.15s; }
+  .delay-2 { transition-delay: 0.3s; }
+
+
+  .fade-up { opacity: 0; transform: translateY(50px); transition: opacity 0.9s ease, transform 0.9s ease; }
+  .fade-left { opacity: 0; transform: translateX(-50px); transition: opacity 0.9s ease, transform 0.9s ease; }
+  .fade-right { opacity: 0; transform: translateX(50px); transition: opacity 0.9s ease, transform 0.9s ease; }
+  .fade-up.visible, .fade-left.visible, .fade-right.visible { opacity: 1; transform: none; }
+  .delay-1 { transition-delay: 0.15s; }
+  .delay-2 { transition-delay: 0.3s; }
+  .delay-3 { transition-delay: 0.45s; }
+
+  @media (max-width: 600px) {
+    .stats-row { grid-template-columns: 1fr; }
+    .row2, .row3 { grid-template-columns: 1fr; }
+    .card { padding: 1.5rem; }
+    .trust-row { gap: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo-syp"><span class="s">S</span><span class="y">Y</span><span class="p">P</span></div>
+  <div class="logo-divider"></div>
+  <div class="logo-sub">SELL YOUR PROPERTY UAE</div>
+</header>
+
+<!-- HERO TEXT -->
+<div class="hero">
+  <div class="hero-tag fade-up">FOR PROPERTY OWNERS IN DUBAI & ABU DHABI</div>
+
+  <h1 class="fade-up delay-1">Your property deserves<br>a <em>serious</em> buyer</h1>
+
+  <div class="ornament">
+    <div class="ornament-line"></div>
+    <div class="ornament-dot"></div>
+    <div class="ornament-line"></div>
+  </div>
+
+  <p class="hero-body fade-up delay-2">
+    If you own a property in Dubai or Abu Dhabi and you're thinking about selling — you already know the problem.<br><br>
+    Endless viewings with buyers who were never serious. Agents who overpromise and underdeliver. Months on the market with no real progress.<br><br>
+    <strong>At SYP UAE, we do things differently.</strong><br><br>
+    We don't list your property publicly. We don't expose it to unqualified eyes. Instead, we bring it directly to our private network of vetted investors and cash buyers — people who are ready to move, not just browsing.<br><br>
+    The result is a faster, smoother, more discreet process. With better outcomes.
+  </p>
+
+  <div class="stats-row fade-up delay-3">
+    <div class="stat">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">VETTED BUYERS</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">0</div>
+      <div class="stat-label">NO LISTING SPAM</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">24H</div>
+      <div class="stat-label">RESPONSE TIME</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- DIVIDER -->
+<div class="section-divider">
+  <div class="div-line"></div>
+  <div class="div-dot"></div>
+  <div class="div-line"></div>
+</div>
+
+<!-- VIDEO SECTION -->
+<div class="video-section">
+  <p class="section-label fade-up">WATCH BEFORE YOU APPLY</p>
+
+  <div class="video-wrap fade-up delay-1">
+    <!--
+      TO ADD YOUR VIDEO: Replace the div.video-placeholder below with:
+      <iframe id="mainVideo" src="https://www.youtube.com/embed/YOUR_VIDEO_ID?enablejsapi=1"
+        frameborder="0" allowfullscreen
+        style="position:absolute;inset:0;width:100%;height:100%;"></iframe>
+      Then the YouTube API will auto-unlock the form when video ends.
+    -->
+    <div class="video-placeholder" onclick="unlockForm()" style="cursor:pointer;">
+      <div class="play-circle"></div>
+      <p>YOUR VIDEO GOES HERE</p>
+      <small>CLICK TO WATCH &amp; UNLOCK THE FORM</small>
+    </div>
+  </div>
+</div>
+
+<!-- DIVIDER -->
+<div class="section-divider">
+  <div class="div-line"></div>
+  <div class="div-dot"></div>
+  <div class="div-line"></div>
+</div>
+
+<!-- FORM SECTION -->
+<div class="form-section" id="form">
+  <div class="form-intro fade-up">
+    <h2>Tell us about<br>your <em>property</em></h2>
+    <p style="margin-top:1rem;">Free. Confidential. No commitment required.<br>We'll get back to you within 24 hours.</p>
+  </div>
+
+  <div style="position:relative;" class="fade-up delay-1">
+  <div class="form-lock-overlay" id="formLock">
+    <div class="lock-icon">🔒</div>
+    <div class="lock-text"><strong>Watch the video first</strong>Please watch the video above<br>to unlock the application form.</div>
+  </div>
+  <div class="card">
+    <div class="progress"><div class="progress-fill" id="prog" style="width:10%"></div></div>
+
+    <!-- STEP 1 -->
+    <div class="step active" id="step1">
+      <p class="step-num">STEP 1 OF 4</p>
+      <p class="step-q">Tell us about yourself</p>
+      <div class="row2">
+        <div><label class="field-label">FIRST NAME</label><input class="field-input" id="s_fname" placeholder="Ahmed"></div>
+        <div><label class="field-label">LAST NAME</label><input class="field-input" id="s_lname" placeholder="Al Mansouri"></div>
+      </div>
+      <label class="field-label">WHATSAPP NUMBER</label>
+      <input class="field-input" id="s_phone" placeholder="+971 50 000 0000">
+      <label class="field-label">EMAIL (optional)</label>
+      <input class="field-input" id="s_email" placeholder="your@email.com">
+      <button class="btn-next" onclick="goTo('step2', 35)">CONTINUE →</button>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="step" id="step2">
+      <p class="step-num">STEP 2 OF 4</p>
+      <p class="step-q">Tell us about your property</p>
+      <label class="field-label">PROPERTY TYPE</label>
+      <select class="field-input" id="s_type">
+        <option value="" disabled selected>Select type</option>
+        <option>Apartment</option><option>Villa</option><option>Townhouse</option>
+        <option>Penthouse</option><option>Commercial</option><option>Land</option>
+      </select>
+      <div class="row2">
+        <div><label class="field-label">COMMUNITY / AREA</label><input class="field-input" id="s_area" placeholder="Dubai Marina"></div>
+        <div><label class="field-label">BUILDING NAME</label><input class="field-input" id="s_building" placeholder="Marina Gate 1"></div>
+      </div>
+      <div class="row3">
+        <div><label class="field-label">UNIT NO.</label><input class="field-input" id="s_unit" placeholder="2104"></div>
+        <div><label class="field-label">FLOOR</label><input class="field-input" id="s_floor" placeholder="21"></div>
+        <div><label class="field-label">BEDROOMS</label>
+          <select class="field-input" id="s_beds">
+            <option value="" disabled selected>Beds</option>
+            <option>Studio</option><option>1 BR</option><option>2 BR</option>
+            <option>3 BR</option><option>4 BR</option><option>5+ BR</option>
+          </select>
+        </div>
+      </div>
+      <label class="field-label">SIZE (sq ft)</label>
+      <input class="field-input" id="s_size" placeholder="1,200 sq ft">
+      <button class="btn-next" onclick="goTo('step3', 60)">CONTINUE →</button>
+      <button class="btn-back" onclick="goTo('step1', 10)">← BACK</button>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="step" id="step3">
+      <p class="step-num">STEP 3 OF 4</p>
+      <p class="step-q">Pricing & timeline</p>
+      <label class="field-label">ASKING PRICE (AED)</label>
+      <input class="field-input" id="s_price" placeholder="2,500,000">
+      <label class="field-label">WHEN DO YOU WANT TO SELL?</label>
+      <select class="field-input" id="s_timeline">
+        <option value="" disabled selected>Select timeline</option>
+        <option>As soon as possible</option><option>Within 3 months</option>
+        <option>Within 6 months</option><option>Just exploring</option>
+      </select>
+      <label class="field-label">ARE YOU WORKING WITH OTHER AGENTS?</label>
+      <select class="field-input" id="s_agents">
+        <option value="" disabled selected>Select</option>
+        <option>No, only with you</option><option>Yes, with 1-2 others</option>
+        <option>Listed on portals already</option>
+      </select>
+      <button class="btn-next" onclick="goTo('step4', 85)">CONTINUE →</button>
+      <button class="btn-back" onclick="goTo('step2', 35)">← BACK</button>
+    </div>
+
+    <!-- STEP 4 -->
+    <div class="step" id="step4">
+      <p class="step-num">STEP 4 OF 4</p>
+      <p class="step-q">Any additional details?</p>
+      <label class="field-label">SPECIAL FEATURES (optional)</label>
+      <textarea class="field-input" id="s_notes" rows="4" placeholder="View, furnishing, renovations, vacant or tenanted..."></textarea>
+      <label class="field-label">HOW DID YOU FIND US?</label>
+      <select class="field-input" id="s_source">
+        <option value="" disabled selected>Select</option>
+        <option>Instagram</option><option>Referral</option><option>Google</option><option>Other</option>
+      </select>
+      <button class="btn-next" onclick="submitForm()">SUBMIT MY PROPERTY →</button>
+      <button class="btn-back" onclick="goTo('step3', 60)">← BACK</button>
+    </div>
+
+    <!-- SUCCESS -->
+    <div class="step" id="success">
+      <div class="success">
+        <div class="success-check">✓</div>
+        <p class="success-h">You're all set.</p>
+        <div style="height:0.5px;background:rgba(216,200,126,0.3);margin:1rem 0;"></div>
+        <p class="success-sub">We've received your property details.<br>We'll be in touch within <span style="color:var(--gold);">24 hours</span> via WhatsApp.<br><br>No pressure · No fees upfront · Just results.</p>
+      </div>
+    </div>
+  </div>
+
+  </div><!-- end position:relative -->
+  <div class="trust-row fade-up delay-2">
+    <div class="trust-item">Free & confidential</div>
+    <div class="trust-item">No commitment required</div>
+    <div class="trust-item">RERA licensed</div>
+    <div class="trust-item">Response within 24h</div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2025 SYP UAE · <a href="mailto:contact@sellyourpropertyuae.com">contact@sellyourpropertyuae.com</a> · RERA Licensed</p>
+</footer>
+
+<script>
+  function goTo(id, prog) {
+    document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    document.getElementById('prog').style.width = prog + '%';
+    document.getElementById('form').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function submitForm() {
+    const data = {
+      type: 'sell',
+      timestamp: new Date().toLocaleString(),
+      firstName: document.getElementById('s_fname').value,
+      lastName:  document.getElementById('s_lname').value,
+      phone:     document.getElementById('s_phone').value,
+      email:     document.getElementById('s_email').value,
+      propType:  document.getElementById('s_type').value,
+      area:      document.getElementById('s_area').value,
+      building:  document.getElementById('s_building').value,
+      unit:      document.getElementById('s_unit').value,
+      floor:     document.getElementById('s_floor').value,
+      beds:      document.getElementById('s_beds').value,
+      size:      document.getElementById('s_size').value,
+      price:     document.getElementById('s_price').value,
+      timeline:  document.getElementById('s_timeline').value,
+      agents:    document.getElementById('s_agents').value,
+      notes:     document.getElementById('s_notes').value,
+      source:    document.getElementById('s_source').value,
+    };
+    fetch('https://formspree.io/f/xzdynorn', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+      body: JSON.stringify(data)
+    });
+    goTo('success', 100);
+  }
+
+  function unlockForm() {
+    const lock = document.getElementById('formLock');
+    if (lock) {
+      lock.classList.add('unlocked');
+      setTimeout(() => lock.remove(), 700);
+    }
+  }
+
+  // YouTube API auto-unlock when video ends
+  window.onYouTubeIframeAPIReady = function() {
+    const iframe = document.getElementById('mainVideo');
+    if (!iframe) return;
+    new YT.Player('mainVideo', {
+      events: { onStateChange: function(e) { if (e.data === 0) unlockForm(); } }
+    });
+  };
+
+  // Scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-up, .fade-left, .fade-right').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
