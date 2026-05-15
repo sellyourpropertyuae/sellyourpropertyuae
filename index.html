@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -25,8 +26,8 @@
   .logo-sub { font-family: 'Montserrat', sans-serif; font-size: 9px; letter-spacing: 4px; color: var(--gold); }
   nav a { font-family: 'Montserrat', sans-serif; font-size: 10px; letter-spacing: 3px; color: var(--muted); text-decoration: none; margin-left: 2rem; transition: color 0.2s; }
   nav a:hover { color: var(--gold); }
-.buyers-btn { font-family: 'Montserrat', sans-serif; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; font-weight: 700; background: var(--gold); color: var(--navy); padding: 9px 22px; text-decoration: none; transition: background 0.2s; }
-.buyers-btn:hover { background: #e8d89a; }
+  .buyers-btn { font-family: 'Montserrat', sans-serif; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; font-weight: 700; background: var(--gold); color: var(--navy); padding: 9px 22px; text-decoration: none; display: inline-block; transition: background 0.2s; }
+  .buyers-btn:hover { background: #e8d89a; }
   .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 8rem 2rem 4rem; position: relative; overflow: hidden; }
   .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(216,200,126,0.06) 0%, transparent 70%); pointer-events: none; }
   .hero-tag { font-family: 'Montserrat', sans-serif; font-size: 10px; letter-spacing: 5px; color: var(--gold); border: 0.5px solid rgba(216,200,126,0.4); padding: 6px 18px; border-radius: 2px; margin-bottom: 2rem; display: inline-block; }
@@ -84,6 +85,7 @@
     .photo-strip { grid-template-columns: 1fr; grid-template-rows: 260px 260px 260px; }
     .row2, .row3 { grid-template-columns: 1fr; }
     nav { display: none; }
+    .buyers-btn { display: none; }
     .card { padding: 1.5rem; }
   }
   .fade-up { opacity: 0; transform: translateY(50px); transition: opacity 0.8s ease, transform 0.8s ease; }
@@ -97,12 +99,13 @@
 </head>
 <body>
 <header>
-  <div class="logo-wrap">
+  <a href="index.html" class="logo-wrap" style="text-decoration:none;">
     <div class="logo-syp"><span class="s">S</span><span class="y">Y</span><span class="p">P</span></div>
     <div class="logo-divider"></div>
     <div class="logo-sub">SELL YOUR PROPERTY UAE</div>
-  </div>
-  <a href="buyers.html" class="buyers-btn">BUYERS</a> <nav>
+  </a>
+  <a href="buyers.html" class="buyers-btn">BUYERS</a>
+  <nav>
     <a href="services.html">SERVICES</a>
     <a href="#form">GET STARTED</a>
     <a href="mailto:contact@sellyourpropertyuae.com">CONTACT</a>
@@ -393,14 +396,10 @@
 <script>
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
+      if (entry.isIntersecting) { entry.target.classList.add('visible'); }
     });
   }, { threshold: 0.15 });
-  document.querySelectorAll('.fade-up, .fade-left, .fade-right').forEach(el => {
-    observer.observe(el);
-  });
+  document.querySelectorAll('.fade-up, .fade-left, .fade-right').forEach(el => { observer.observe(el); });
 </script>
 </body>
 </html>
